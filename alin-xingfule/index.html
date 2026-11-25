@@ -25,8 +25,8 @@ let style="letter",kind="staff";
 const key=document.getElementById("key"),pdf=document.getElementById("pdf");
 function show(){const k=encodeURIComponent(key.value);pdf.src="pdf/"+k+"_"+style+"_"+kind+".pdf";}
 key.onchange=show;
-document.getElementById("print").onclick=()=>{try{pdf.contentWindow.focus();pdf.contentWindow.print();}
-catch(e){window.open(pdf.src,"_blank");document.getElementById("tip").textContent="已在新分頁開 PDF，按 ⌘P 列印";}};
+document.getElementById("print").onclick=()=>{window.open(pdf.src,"_blank");
+document.getElementById("tip").textContent="已在新分頁開 PDF，按 ⌘P（手機：分享→列印）";};
 document.querySelectorAll(".seg").forEach(g=>g.querySelectorAll("button").forEach(b=>b.onclick=()=>{
 if(g.id==="kind")kind=b.dataset.s;else style=b.dataset.s;
 g.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));show();}));
